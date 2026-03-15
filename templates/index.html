@@ -1,65 +1,35 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>YOLO-Currency Notes Detection</title>
-  <!-- My CSS -->
+  <title>Indian Currency Notes Detection</title>
   <link rel="stylesheet" type="text/css" href="../static/index.css">
-  <!-- <link rel="stylesheet" type="text/css" href="http://xxx.xxx.xxx.xxx:8080/static/index.css"> -->
-  <!-- jQuery -->
-  
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
-  </script> -->
-  
-  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
-  </script> -->
-
-  <!-- Google CDN -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-  </script>
-  <!-- My JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript" src="../static/index.js"></script>
-  <!-- <script type="text/javascript" src="http://xxx.xxx.xxx.xxx:8080/static/index.js"></script> -->
 </head>
-
 <body>
-  <div class="app">
-    <div class="app-header">
-      <p class="title-wrap">
-          Indian Currency Notes Detection - YOLO
-      </p>
-      <div class="pre-img">
-        <span>
-          <img id="imagebox" src="" />
-        </span>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <main class="app-shell">
+    <section class="card">
+      <h1 class="title-wrap">Indian Currency Notes Detection</h1>
+      <p class="subtitle">Upload a note image and get instant denomination detection using YOLO.</p>
+
+      <div class="preview-wrap">
+        <img id="imagebox" src="" alt="Preview of selected currency note" />
+        <p id="preview-empty" class="preview-empty">No image selected yet</p>
       </div>
-      <form>
-        <input id="imageinput" type="file" name="image" onchange="readUrl(this)">
+
+      <form class="controls" onsubmit="return false;">
+        <label class="file-button" for="imageinput">Choose Image</label>
+        <input id="imageinput" type="file" name="image" accept="image/*" onchange="readUrl(this)">
+        <button name="send" id="sendbutton" type="button">Detect Note</button>
       </form>
-      <button name="send" id="sendbutton" onclick="changeColor()">Send</button>
 
-      <div class="loading">
-        <div class="percent">100%</div>
-        <div class="text">Completed!</div>
-        <div class="progress-bar">
-          <div class="progress">
-          </div>
-        </div>
-      </div>
-
-      <!-- <a href="http://xxx.xxx.xxx.xxx:8080/audioFile"><button id="voiceoutput" class="voiceoutputbtn">Get Speech Out</button></a> -->
-      <!-- <a href="/audioFile"><button id="voiceoutput" class="voiceoutputbtn">Get Speech Out</button></a> -->
-      <button id="voice-english-output" class="voiceoutputbtn-1">Get English Speech Out</button>
-      <button id="voice-hindi-output" class="voiceoutputbtn-2">Get Hindi Speech Out</button>
-    </div>
-  </div>
-
+      <p id="detected-output" class="detected-output" aria-live="polite"></p>
+    </section>
+  </main>
 </body>
-
 </html>
